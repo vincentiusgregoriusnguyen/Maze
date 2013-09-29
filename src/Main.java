@@ -38,86 +38,96 @@ public class Main {
 	static char Free = ' ';
 	static char Path = '*';
 	
+	
 	public static void findpath(){
-			if(CurrentDirection == 'n'){
-				if(currentY - 1 >= 0 && (Maze[currentY - 1][currentX] == '*') || (Maze[currentY - 1][currentX] == 'E')){ 
-					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
-					currentY = currentY - 1;
-					instructions.add("Forward");
+		while(currentX != End.getX() && currentY != End.getY()){
+				switch(CurrentDirection){
+				case 'n': 
+							if(currentY - 1 >= 0 && (Maze[currentY - 1][currentX] == '*') || (Maze[currentY - 1][currentX] == 'E')){ 
+								currentY = currentY - 1;
+								System.out.println("y: " + currentY + " x: " + currentX);
+								instructions.add("Forward");
+								break;
+							}
+							if(currentX - 1 >= 0 && (Maze[currentY][currentX - 1] == '*') || (Maze[currentY][currentX - 1] == 'E')){
+								currentX = currentX - 1;
+								System.out.println("y: " + currentY + " x: " + currentX);
+								instructions.add("Left");
+								CurrentDirection = 'w';
+								break;
+							}
+							if(currentX + 1 < Width && (Maze[currentY][currentX + 1] == '*') || (Maze[currentY][currentX + 1] == 'E')){
+								currentX = currentX + 1;
+								System.out.println("y: " + currentY + " x: " + currentX);
+								instructions.add("Right");
+								CurrentDirection = 'e';
+								break;
+							}
+				case 'e':
+							if(currentX + 1  < Width && (Maze[currentY][currentX + 1] == '*') || (Maze[currentY][currentX + 1] == 'E')){
+								currentX = currentX - 1;
+								System.out.println("y: " + currentY + " x: " + currentX);
+								CurrentDirection = 'e';
+								instructions.add("Forward");
+								break;
+							}
+							if(currentY - 1 >= 0 && (Maze[currentY - 1][currentX] == '*') || (Maze[currentY - 1][currentX] == 'E')){
+								currentY = currentY - 1;
+								System.out.println("y: " + currentY + " x: " + currentX);
+								instructions.add("Left");
+								CurrentDirection = 'n';
+								break;
+							}
+							if(currentY + 1 < Height && (Maze[currentY + 1][currentX] == '*') || (Maze[currentY + 1][currentX] == 'E')){
+								currentY = currentY + 1;
+								System.out.println("y: " + currentY + " x: " + currentX);
+								instructions.add("Right");
+								CurrentDirection = 's';
+								break;
+							}
+				case 's':	
+							if(currentY + 1 < Height && (Maze[currentY + 1][currentX] == '*') || (Maze[currentY + 1][currentX] == 'E')){
+								currentY = currentY + 1;
+								System.out.println("y: " + currentY + " x: " + currentX);
+								instructions.add("Forward");
+								break;
+							}
+							if(currentX + 1 < Width && (Maze[currentY][currentX + 1] == '*') || (Maze[currentY][currentX + 1] == 'E')){
+								currentX = currentX + 1;
+								System.out.println("y: " + currentY + " x: " + currentX);
+								instructions.add("Left");
+								CurrentDirection = 'e';
+								break;
+							}
+							if(currentX - 1 >= 0 && (Maze[currentY][currentX - 1] == '*') || (Maze[currentY][currentX - 1] == 'E')){
+								currentX = currentX - 1;
+								System.out.println("y: " + currentY + " x: " + currentX);
+								instructions.add("Right");
+								CurrentDirection = 'w';
+								break;
+							}
+				case 'w':
+							if(currentY - 1 >= 0 && (Maze[currentY - 1][currentX] == '*') || (Maze[currentY - 1][currentX] == 'E')){
+								currentY = currentY - 1;
+								System.out.println("y: " + currentY + " x: " + currentX);
+								instructions.add("Right");
+								CurrentDirection = 'n';
+								break;
+							}
+							if(currentX - 1 >= 0 && (Maze[currentY][currentX - 1] == '*') || (Maze[currentY][currentX - 1] == 'E')){
+								currentX = currentX - 1;
+								System.out.println("y: " + currentY + " x: " + currentX);
+								instructions.add("Forward");
+								break;
+							}
+							if(currentY + 1 < Height && (Maze[currentY+1][currentX] == '*') || (Maze[currentY+1][currentX] == 'E')){
+								currentY = currentY + 1;
+								System.out.println("y: " + currentY + " x: " + currentX);
+								instructions.add("Left");
+								CurrentDirection = 's';
+								break;
+							}	
 				}
-				if(currentX - 1 >= 0 && (Maze[currentY][currentX - 1] == '*') || (Maze[currentY][currentX - 1] == 'E')){
-					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
-					currentX = currentX - 1;
-					instructions.add("Left");
-					CurrentDirection = 'e';
-				}
-				if(currentX + 1 < Width && (Maze[currentY][currentX + 1] == '*') || (Maze[currentY][currentX + 1] == 'E')){
-					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
-					currentX = currentX + 1;
-					instructions.add("Right");
-					CurrentDirection = 'w';
-				}	
-			}
-			
-			if(CurrentDirection == 'e'){
-				if(currentX + 1 < Width && (Maze[currentY][currentX - 1] == '*') || (Maze[currentY][currentX - 1] == 'E')){
-					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
-					currentX = currentX - 1;
-					instructions.add("Forward");
-				}
-				if(currentY - 1 >= 0 && (Maze[currentY - 1][currentX] == '*') || (Maze[currentY - 1][currentX] == 'E')){
-					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
-					currentY = currentY - 1;
-					instructions.add("Left");
-					CurrentDirection = 'n';
-				}
-				if(currentY + 1 < Height && (Maze[currentY + 1][currentX] == '*') || (Maze[currentY + 1][currentX] == 'E')){
-					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
-					currentY = currentY + 1;
-					instructions.add("Right");
-					CurrentDirection = 's';
-				}
-			}
-			
-			
-			if(CurrentDirection == 's'){
-				if(currentY + 1 < Height && (Maze[currentY + 1][currentX] == '*') || (Maze[currentY + 1][currentX] == 'E')){
-					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
-					currentY = currentY + 1;
-					instructions.add("Forward");
-				}
-				if(currentX + 1 < Width && (Maze[currentY][currentX + 1] == '*') || (Maze[currentY][currentX + 1] == 'E')){
-					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
-					currentX = currentX + 1;
-					instructions.add("Left");
-					CurrentDirection = 'e';
-				}
-				if(currentX - 1 >= 0 && (Maze[currentY][currentX - 1] == '*') || (Maze[currentY][currentX - 1] == 'E')){
-					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
-					currentX = currentX - 1;
-					instructions.add("Right");
-					CurrentDirection = 'w';
-				}
-			}
-			
-			if(CurrentDirection == 'w'){
-				if(currentY - 1 >= 0 && (Maze[currentY - 1][currentX] == '*') || (Maze[currentY - 1][currentX] == 'E')){
-					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
-					currentY = currentY - 1;
-					instructions.add("Right");
-					CurrentDirection = 'n';
-				}
-				if(currentX - 1 >= 0 && (Maze[currentY][currentX - 1] == '*') || (Maze[currentY][currentX - 1] == 'E')){
-					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
-					currentX = currentX - 1;
-					instructions.add("Forward");
-				}
-				if(currentY + 1 < Height && (Maze[currentY+1][currentX] == '*') || (Maze[currentY+1][currentX] == 'E')){
-					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
-					currentY = currentY + 1;
-					instructions.add("Left");
-					CurrentDirection = 's';
-				}	
 		}
 	} 
 	
@@ -162,20 +172,25 @@ public class Main {
 	}
 	
 	public static void main(String[] pikachu){
-		System.out.println("Maze");
-		printmaze();
+		System.out.println("Maze");		
+		
+	    printmaze();
+		
 		System.out.println();
 		
 		if(solve(Start.getX(), Start.getY())){
 			System.out.println("Solution");
 			printmaze();
 			
+			System.out.println("y: " + Start.getY() + " x: " + Start.getY());
 			findpath();
 			
 			for(String x: instructions){
 				System.out.println(x);
 			}
-		}
+			System.out.println("y: " + currentY + " x: " + currentX);
+			System.out.println(CurrentDirection);
+		} 
 		else{
 			System.out.println("no solution");
 		}
