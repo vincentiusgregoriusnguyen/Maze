@@ -41,32 +41,38 @@ public class Main {
 	public static void findpath(){
 			if(CurrentDirection == 'n'){
 				if(currentY - 1 >= 0 && (Maze[currentY - 1][currentX] == '*') || (Maze[currentY - 1][currentX] == 'E')){ 
+					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
 					currentY = currentY - 1;
 					instructions.add("Forward");
 				}
 				if(currentX - 1 >= 0 && (Maze[currentY][currentX - 1] == '*') || (Maze[currentY][currentX - 1] == 'E')){
+					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
 					currentX = currentX - 1;
 					instructions.add("Left");
-					CurrentDirection = 'w';
+					CurrentDirection = 'e';
 				}
 				if(currentX + 1 < Width && (Maze[currentY][currentX + 1] == '*') || (Maze[currentY][currentX + 1] == 'E')){
+					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
 					currentX = currentX + 1;
 					instructions.add("Right");
-					CurrentDirection = 'e';
+					CurrentDirection = 'w';
 				}	
 			}
 			
 			if(CurrentDirection == 'e'){
 				if(currentX + 1 < Width && (Maze[currentY][currentX - 1] == '*') || (Maze[currentY][currentX - 1] == 'E')){
+					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
 					currentX = currentX - 1;
 					instructions.add("Forward");
 				}
 				if(currentY - 1 >= 0 && (Maze[currentY - 1][currentX] == '*') || (Maze[currentY - 1][currentX] == 'E')){
+					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
 					currentY = currentY - 1;
 					instructions.add("Left");
 					CurrentDirection = 'n';
 				}
 				if(currentY + 1 < Height && (Maze[currentY + 1][currentX] == '*') || (Maze[currentY + 1][currentX] == 'E')){
+					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
 					currentY = currentY + 1;
 					instructions.add("Right");
 					CurrentDirection = 's';
@@ -76,15 +82,18 @@ public class Main {
 			
 			if(CurrentDirection == 's'){
 				if(currentY + 1 < Height && (Maze[currentY + 1][currentX] == '*') || (Maze[currentY + 1][currentX] == 'E')){
+					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
 					currentY = currentY + 1;
 					instructions.add("Forward");
 				}
 				if(currentX + 1 < Width && (Maze[currentY][currentX + 1] == '*') || (Maze[currentY][currentX + 1] == 'E')){
+					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
 					currentX = currentX + 1;
 					instructions.add("Left");
 					CurrentDirection = 'e';
 				}
 				if(currentX - 1 >= 0 && (Maze[currentY][currentX - 1] == '*') || (Maze[currentY][currentX - 1] == 'E')){
+					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
 					currentX = currentX - 1;
 					instructions.add("Right");
 					CurrentDirection = 'w';
@@ -93,15 +102,18 @@ public class Main {
 			
 			if(CurrentDirection == 'w'){
 				if(currentY - 1 >= 0 && (Maze[currentY - 1][currentX] == '*') || (Maze[currentY - 1][currentX] == 'E')){
+					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
 					currentY = currentY - 1;
 					instructions.add("Right");
 					CurrentDirection = 'n';
 				}
 				if(currentX - 1 >= 0 && (Maze[currentY][currentX - 1] == '*') || (Maze[currentY][currentX - 1] == 'E')){
+					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
 					currentX = currentX - 1;
 					instructions.add("Forward");
 				}
 				if(currentY + 1 < Height && (Maze[currentY+1][currentX] == '*') || (Maze[currentY+1][currentX] == 'E')){
+					System.out.println("Current X: " + currentX + " Current Y: " + currentY + " Direction " + CurrentDirection);
 					currentY = currentY + 1;
 					instructions.add("Left");
 					CurrentDirection = 's';
