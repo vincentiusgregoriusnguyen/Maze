@@ -22,10 +22,11 @@ public class Main {
     static Coordinate Start = new Coordinate(Maze[0].length - 2,Maze.length - 1);
     static Coordinate End = new Coordinate(1,0);
     static char CurrentDirection = 'n';
+    
     static int previousX = 0;
     static int previousY = 0;
-    static int currentX = 7;
-    static int currentY = 8;
+    static int currentX = Maze[0].length - 2;
+    static int currentY = Maze.length - 1;
     static ArrayList<String> instructions = new ArrayList<String>();
 
 	static char Wall = '#';
