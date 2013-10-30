@@ -5,35 +5,29 @@ import java.util.ArrayList;
 
 public class Main {
 	
-	static int Height = 9;
-    static int Width = 9;
-    
-    static Coordinate Start = new Coordinate(7,8);
+	static char Maze[][] ={
+		{'#',' ','#','#','#','#','#','#','#'},
+		{'#',' ',' ',' ','#',' ',' ',' ','#'},
+	    {'#',' ','#','#','#',' ','#',' ','#'},
+	    {'#',' ','#',' ',' ',' ','#',' ','#'},
+	    {'#',' ','#',' ','#',' ','#','#','#'},
+	    {'#',' ',' ',' ','#',' ','#',' ','#'},
+	    {'#',' ','#','#','#',' ','#',' ','#'},
+	    {'#',' ',' ',' ','#',' ',' ',' ','#'},
+	    {'#','#','#','#','#','#','#',' ','#'}
+};
+	
+	static int Height = Maze.length;
+    static int Width = Maze[0].length;
+    static Coordinate Start = new Coordinate(Maze[0].length - 2,Maze.length - 1);
     static Coordinate End = new Coordinate(1,0);
-    
     static char CurrentDirection = 'n';
-    
     static int previousX = 0;
     static int previousY = 0;
-    
     static int currentX = 7;
     static int currentY = 8;
-    
     static ArrayList<String> instructions = new ArrayList<String>();
- 
-	
-	static char Maze[][] ={
-			{'#',' ','#','#','#','#','#','#','#'},
-			{'#',' ',' ',' ','#',' ',' ',' ','#'},
-		    {'#',' ','#','#','#',' ','#',' ','#'},
-		    {'#',' ','#',' ',' ',' ','#',' ','#'},
-		    {'#',' ','#',' ','#',' ','#','#','#'},
-		    {'#',' ',' ',' ','#',' ','#',' ','#'},
-		    {'#',' ','#','#','#',' ','#',' ','#'},
-		    {'#',' ',' ',' ','#',' ',' ',' ','#'},
-		    {'#','#','#','#','#','#','#',' ','#'}
-	};
-	
+
 	static char Wall = '#';
 	static char Free = ' ';
 	static char Path = '*';
